@@ -7,11 +7,29 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  // https://fisip.ui.ac.id/informasi-publik/logo/
+  static const Map<int, Color> colorUI = {
+    50: Color.fromRGBO(246, 219, 0, .1),
+    100: Color.fromRGBO(246, 219, 0, .2),
+    200: Color.fromRGBO(246, 219, 0, .3),
+    300: Color.fromRGBO(246, 219, 0, .4),
+    400: Color.fromRGBO(246, 219, 0, .5),
+    500: Color.fromRGBO(246, 219, 0, .6),
+    600: Color.fromRGBO(246, 219, 0, .7),
+    700: Color.fromRGBO(246, 219, 0, .8),
+    800: Color.fromRGBO(246, 219, 0, .9),
+    900: Color.fromRGBO(246, 219, 0, 1),
+  };
+
+  static const primaryUIColor = Color.fromARGB(255, 246, 219, 0);
+  static const primaryUIMaterialColor =
+      MaterialColor(0xFFF6DB00, colorUI);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Ibuska',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -22,9 +40,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: primaryUIMaterialColor,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Ibuska'),
     );
   }
 }
@@ -69,6 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
