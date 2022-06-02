@@ -55,6 +55,15 @@ class DrawerMenu extends StatelessWidget {
                   ),
                   const Divider(),
                   ListTile(
+                    title: const Text('Daftar Fakultas'),
+                    onTap: () {},
+                  ),
+                  ListTile(
+                    title: const Text('Daftar Fasilitas'),
+                    onTap: () {},
+                  ),
+                  const Divider(),
+                  ListTile(
                     title: const Text('Kontak Kami'),
                     onTap: () {},
                   ),
