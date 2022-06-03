@@ -51,6 +51,12 @@ Fasilitas klinikSatelit = const Fasilitas(
   deskripsi: "Klinik Satelit Makara Universitas Indonesia.",
 );
 
+Fasilitas halteBusUI = const Fasilitas(
+  nama: "Halte Bus Transjakarta UI",
+  tipe: "Halte Transjakarta",
+  deskripsi: "Halte Bus Transjakarta Universitas Indonesia.",
+);
+
 // Halte Bus
 HalteBus halteAsrama = HalteBus(
   nama: "Asrama",
@@ -66,7 +72,7 @@ HalteBus halteMenwa = const HalteBus(
 
 HalteBus halteStasiun = HalteBus(
   nama: "Stasiun UI",
-  fasilitas: [stasiunUI],
+  fasilitas: [stasiunUI, halteBusUI],
   deskripsi: "Halte Stasiun Universitas Indonesia.",
 );
 
