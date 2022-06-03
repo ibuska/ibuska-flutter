@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ibuska/presentation/widgets/drawer_menu.dart';
+import 'package:ibuska/presentation/widgets/route_info.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(
-              width: screenWidth * 0.9,
+              width: screenWidth * 0.85,
               height: screenHeight * 0.05,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(36.0),
@@ -51,87 +52,20 @@ class _HomePageState extends State<HomePage> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: screenHeight * 0.04,
+                      fontSize: screenHeight * 0.035,
                     ),
                   ),
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                right: screenWidth * 0.075,
-                left: screenWidth * 0.075,
-                top: screenHeight * 0.01,
-                bottom: screenHeight * 0.01,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "Rute Lurus (Rute Merah)",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.red,
-                        ),
-                      ),
-                      Text("Perjalanan Normal")
-                    ],
-                  ),
-                  // https://stackoverflow.com/a/54222675
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
-                    child: Image.asset(
-                      "assets/images/red-route.png",
-                      height: 50,
-                      width: 50,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                right: screenWidth * 0.075,
-                left: screenWidth * 0.075,
-                top: screenHeight * 0.01,
-                bottom: screenHeight * 0.01,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "Rute Belok Kanan (Rute Biru)",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue,
-                        ),
-                      ),
-                      Text("Perjalanan Normal")
-                    ],
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
-                    child: Image.asset(
-                      "assets/images/blue-route.png",
-                      height: 50,
-                      width: 50,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            const RouteInfo("merah"),
+            const RouteInfo("biru"),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        tooltip: 'Increment',
+        tooltip: 'Menu',
         child: const CircleAvatar(
           backgroundImage: AssetImage("images/ibuska-logo.png"),
           // https://stackoverflow.com/a/61100541
