@@ -36,6 +36,7 @@ class _HomePageState extends State<HomePage> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(36.0),
                 child: Container(
+                  alignment: Alignment.center,
                   decoration: const BoxDecoration(
                     color: Color(0xFFF6DB00),
                     boxShadow: [
@@ -66,7 +67,19 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text("Rute Lurus (Rute Merah)\nPerjalanan Normal"),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "Rute Lurus (Rute Merah)",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red,
+                        ),
+                      ),
+                      Text("Perjalanan Normal")
+                    ],
+                  ),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(5),
                     child: Image.asset(
@@ -88,7 +101,19 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text("Rute Belok Kanan (Rute Biru)\nPerjalanan Normal"),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "Rute Belok Kanan (Rute Biru)",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue,
+                        ),
+                      ),
+                      Text("Perjalanan Normal")
+                    ],
+                  ),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(5),
                     child: Image.asset(
