@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:ibuska/presentation/pages/home_page.dart';
 
-class DrawerMenu extends StatelessWidget {
+class DrawerMenu extends StatefulWidget {
   final String route;
-
   const DrawerMenu(this.route, {Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {    
+  State<DrawerMenu> createState() => _DrawerMenuState();
+}
+
+class _DrawerMenuState extends State<DrawerMenu> {
+  @override
+  Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
+    var screenHeight = screenSize.height;
+
     return Drawer(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -16,15 +23,15 @@ class DrawerMenu extends StatelessWidget {
             Container(
               width: double.infinity,
               height: 64,
-              child: const DrawerHeader(
-                decoration: BoxDecoration(
+              child: DrawerHeader(
+                decoration: const BoxDecoration(
                   color: Color(0xFFF6DB00),
                 ),
                 child: Text(
                   'Informasi Bus Kampus',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 25,
+                    fontSize: screenHeight * 0.035,
                   ),
                 ),
               ),
@@ -36,7 +43,7 @@ class DrawerMenu extends StatelessWidget {
                   ListTile(
                     title: const Text('Beranda'),
                     onTap: () {
-                      route == HomePage.routeName
+                      widget.route == HomePage.routeName
                         ? Navigator.pop(context)
                         : Navigator.pushReplacementNamed(context, HomePage.routeName);
                     },

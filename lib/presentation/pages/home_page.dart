@@ -10,17 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    const routeName = '/home';
     var screenSize = MediaQuery.of(context).size;
     var screenHeight = screenSize.height;
     var screenWidth = screenSize.width;
@@ -34,7 +25,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      drawer: const DrawerMenu(routeName),
+      drawer: const DrawerMenu(HomePage.routeName),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -55,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   child: Text(
-                    "Informasi Jalur Bus",
+                    "Informasi Rute Bus",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -65,18 +56,55 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            const Text(
-              'You have pushed the button this many times:',
+            Padding(
+              padding: EdgeInsets.only(
+                right: screenWidth * 0.075,
+                left: screenWidth * 0.075,
+                top: screenHeight * 0.01,
+                bottom: screenHeight * 0.01,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("Rute Lurus (Rute Merah)\nPerjalanan Normal"),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Image.asset(
+                      "assets/images/red-route.png",
+                      height: 50,
+                      width: 50,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Padding(
+              padding: EdgeInsets.only(
+                right: screenWidth * 0.075,
+                left: screenWidth * 0.075,
+                top: screenHeight * 0.01,
+                bottom: screenHeight * 0.01,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("Rute Belok Kanan (Rute Biru)\nPerjalanan Normal"),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Image.asset(
+                      "assets/images/blue-route.png",
+                      height: 50,
+                      width: 50,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {},
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
