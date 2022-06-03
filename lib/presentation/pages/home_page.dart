@@ -80,6 +80,7 @@ class _HomePageState extends State<HomePage> {
                       Text("Perjalanan Normal")
                     ],
                   ),
+                  // https://stackoverflow.com/a/54222675
                   ClipRRect(
                     borderRadius: BorderRadius.circular(5),
                     child: Image.asset(
@@ -131,7 +132,11 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        child: const CircleAvatar(
+          backgroundImage: AssetImage("images/ibuska-logo.png"),
+          // https://stackoverflow.com/a/61100541
+          radius: 56,
+        ),
       ),
     );
   }
