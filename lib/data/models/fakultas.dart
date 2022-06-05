@@ -12,9 +12,7 @@ class Fakultas {
   final String deskripsi;
 
   @override
-  List<Object?> get props => [
-        nama,
-        halteTerdekat,
-        deskripsi,
-      ];
+  String toString() {
+    return nama;
+  }
 }

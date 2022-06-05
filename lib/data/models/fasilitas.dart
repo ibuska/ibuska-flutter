@@ -10,9 +10,7 @@ class Fasilitas {
   final String deskripsi;
 
   @override
-  List<Object?> get props => [
-        nama,
-        tipe,
-        deskripsi,
-      ];
+  String toString() {
+    return nama;
+  }
 }
