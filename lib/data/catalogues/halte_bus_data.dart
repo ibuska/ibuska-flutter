@@ -108,3 +108,24 @@ HalteBus halteFPsi = const HalteBus(
   fasilitas: [],
   deskripsi: "Halte Fakultas Psikologi.",
 );
+
+List<HalteBus> daftarHalteBus = [
+  halteAsrama,
+  halteMenwa,
+  halteStasiun,
+  halteFH,
+  halteMasjid,
+  haltePocin,
+  halteRIK,
+  halteFKM,
+  halteFIK,
+  halteFMIPA,
+  halteSOR,
+  haltePusgiwa,
+  halteVokasi,
+  halteFT,
+  halteFEB,
+  halteFIB,
+  halteFISIP,
+  halteFPsi,
+];
