@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ibuska/presentation/pages/faculty_page.dart';
 import 'package:ibuska/presentation/pages/home_page.dart';
 
 void main() {
@@ -23,17 +24,33 @@ class MyApp extends StatelessWidget {
   };
 
   static const primaryUIColor = Color.fromARGB(255, 246, 219, 0);
-  static const primaryUIMaterialColor =
-      MaterialColor(0xFFF6DB00, colorUI);
-  
+  static const primaryUIMaterialColor = MaterialColor(0xFFF6DB00, colorUI);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Ibuska',
-      theme: ThemeData(
-        primarySwatch: primaryUIMaterialColor,
-      ),
-      home: const HomePage(),
-    );
+        title: 'Ibuska',
+        theme: ThemeData(
+          primarySwatch: primaryUIMaterialColor,
+        ),
+        home: const HomePage(),
+        onGenerateRoute: (RouteSettings settings) {
+          switch (settings.name) {
+            case HomePage.routeName:
+              return MaterialPageRoute(builder: (_) => const HomePage());
+            case FacultyPage.routeName:
+              return MaterialPageRoute(builder: (_) => const FacultyPage());
+            default:
+              return MaterialPageRoute(
+                builder: (_) {
+                  return const Scaffold(
+                    body: Center(
+                      child: Text('Halaman tidak ditemukan :('),
+                    ),
+                  );
+                },
+              );
+          }
+        });
   }
 }

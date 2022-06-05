@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ibuska/presentation/pages/faculty_page.dart';
 import 'package:ibuska/presentation/pages/home_page.dart';
 
 class DrawerMenu extends StatefulWidget {
@@ -63,7 +64,11 @@ class _DrawerMenuState extends State<DrawerMenu> {
                   const Divider(),
                   ListTile(
                     title: const Text('Daftar Fakultas'),
-                    onTap: () {},
+                    onTap: () {
+                      widget.route == FacultyPage.routeName
+                        ? Navigator.pop(context)
+                        : Navigator.pushReplacementNamed(context, FacultyPage.routeName);
+                    },
                   ),
                   ListTile(
                     title: const Text('Daftar Fasilitas'),

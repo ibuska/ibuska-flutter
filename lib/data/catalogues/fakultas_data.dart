@@ -55,6 +55,12 @@ Fakultas fisip = Fakultas(
   deskripsi: "Fakultas Ilmu Sosial dan Ilmu Politik.",
 );
 
+Fakultas fkm = Fakultas(
+  nama: "FKM",
+  halteTerdekat: [halteFISIP],
+  deskripsi: "Fakultas Kesehatan Masyarakat.",
+);
+
 Fakultas fik = Fakultas(
   nama: "FIK",
   halteTerdekat: [halteFIK],
@@ -78,3 +84,19 @@ Fakultas fib = Fakultas(
   halteTerdekat: [halteFIB],
   deskripsi: "Fakultas Ilmu Budaya.",
 );
+
+List<Fakultas> daftarFakultas = [
+  fh,
+  rik,
+  fkm,
+  fik,
+  fasilkomBaru,
+  fmipa,
+  vokasi,
+  ft,
+  feb,
+  fib,
+  fasilkomLama,
+  fisip,
+  fpsi,
+];
