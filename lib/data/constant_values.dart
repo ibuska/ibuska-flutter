@@ -119,9 +119,15 @@ HalteBus halteFMIPA = const HalteBus(
 );
 
 HalteBus halteSOR = const HalteBus(
-  nama: "SOR/Pusgiwa",
+  nama: "SOR",
   fasilitas: [],
-  deskripsi: "Halte Sarana Olahraga / Pusat Kegiatan Mahasiswa.",
+  deskripsi: "Halte Sarana Olahraga.",
+);
+
+HalteBus haltePusgiwa = const HalteBus(
+  nama: "Pusgiwa",
+  fasilitas: [],
+  deskripsi: "Halte Pusat Kegiatan Mahasiswa.",
 );
 
 HalteBus halteVokasi = HalteBus(
