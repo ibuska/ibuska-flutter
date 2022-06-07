@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ibuska/presentation/pages/faculty_page.dart';
 import 'package:ibuska/presentation/pages/home_page.dart';
 import 'package:ibuska/presentation/pages/position_page.dart';
+import 'package:ibuska/presentation/pages/schedule_page.dart';
 
 class DrawerMenu extends StatefulWidget {
   final String route;
@@ -60,7 +61,11 @@ class _DrawerMenuState extends State<DrawerMenu> {
                   ),
                   ListTile(
                     title: const Text('Jadwal Bus'),
-                    onTap: () {},
+                    onTap: () {
+                      widget.route == SchedulePage.routeName
+                        ? Navigator.pop(context)
+                        : Navigator.pushReplacementNamed(context, SchedulePage.routeName);
+                    },
                   ),
                   ListTile(
                     title: const Text('Rute Bus'),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ibuska/presentation/pages/faculty_page.dart';
 import 'package:ibuska/presentation/pages/home_page.dart';
 import 'package:ibuska/presentation/pages/position_page.dart';
+import 'package:ibuska/presentation/pages/schedule_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,6 +44,8 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(builder: (_) => const FacultyPage());
             case PositionPage.routeName:
               return MaterialPageRoute(builder: (_) => const PositionPage());
+            case SchedulePage.routeName:
+              return MaterialPageRoute(builder: (_) => const SchedulePage());
             default:
               return MaterialPageRoute(
                 builder: (_) {
