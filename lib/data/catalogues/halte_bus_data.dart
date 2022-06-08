@@ -7,15 +7,15 @@ HalteBus halteAsrama = HalteBus(
   deskripsi: "Halte Asrama Mahasiswa.",
 );
 
-HalteBus halteMenwa = const HalteBus(
+HalteBus halteMenwa = HalteBus(
   nama: "Menwa",
-  fasilitas: [],
+  fasilitas: [halteBusUI],
   deskripsi: "Halte Resimen Mahasiswa.",
 );
 
 HalteBus halteStasiun = HalteBus(
   nama: "Stasiun UI",
-  fasilitas: [stasiunUI, halteBusUI],
+  fasilitas: [stasiunUI],
   deskripsi: "Halte Stasiun Universitas Indonesia.",
 );
 
