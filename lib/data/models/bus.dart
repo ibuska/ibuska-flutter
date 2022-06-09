@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Fakultas {
-  const Fakultas({
+class Bus {
+  const Bus({
     required this.kode,
     required this.warna,
     required this.jamKeberangkatan,
