@@ -7,8 +7,20 @@ Bus lurus1 = const Bus(
   jamKeberangkatan: TimeOfDay(hour: 7, minute: 00),
 );
 
-Bus belok1 = const Bus(
-  kode: "BELOK-1",
+Bus kanan1 = const Bus(
+  kode: "KANAN-1",
   warna: "biru",
   jamKeberangkatan: TimeOfDay(hour: 7, minute: 10),
+);
+
+Bus lurus2 = const Bus(
+  kode: "LURUS-2",
+  warna: "merah",
+  jamKeberangkatan: TimeOfDay(hour: 7, minute: 20),
+);
+
+Bus kanan2 = const Bus(
+  kode: "KANAN-2",
+  warna: "biru",
+  jamKeberangkatan: TimeOfDay(hour: 7, minute: 30),
 );
