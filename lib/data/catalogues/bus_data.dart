@@ -24,3 +24,15 @@ Bus kanan2 = const Bus(
   warna: "biru",
   jamKeberangkatan: TimeOfDay(hour: 7, minute: 30),
 );
+
+Bus lurus3 = const Bus(
+  kode: "LURUS-3",
+  warna: "merah",
+  jamKeberangkatan: TimeOfDay(hour: 7, minute: 40),
+);
+
+Bus kanan3 = const Bus(
+  kode: "KANAN-3",
+  warna: "biru",
+  jamKeberangkatan: TimeOfDay(hour: 7, minute: 50),
+);
