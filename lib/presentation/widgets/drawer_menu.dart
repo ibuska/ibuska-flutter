@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ibuska/presentation/pages/facility_page.dart';
 import 'package:ibuska/presentation/pages/faculty_page.dart';
 import 'package:ibuska/presentation/pages/halte_bus_page.dart';
 import 'package:ibuska/presentation/pages/home_page.dart';
@@ -96,7 +97,11 @@ class _DrawerMenuState extends State<DrawerMenu> {
                   ),
                   ListTile(
                     title: const Text('Daftar Fasilitas'),
-                    onTap: () {},
+                    onTap: () {
+                      widget.route == FacilityPage.routeName
+                        ? Navigator.pop(context)
+                        : Navigator.pushReplacementNamed(context, FacilityPage.routeName);
+                    },
                   ),
                   const Divider(),
                   ListTile(

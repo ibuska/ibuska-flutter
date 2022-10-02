@@ -53,3 +53,19 @@ Fasilitas halteBusUI = const Fasilitas(
   tipe: "Halte Transjakarta",
   deskripsi: "Halte Bus Transjakarta Universitas Indonesia.",
 );
+
+List<Fasilitas> daftarFasilitasRaw = [
+  halteBusUI,
+  asramaUI,
+  stasiunUI,
+  stasiunPocin,
+  masjidUI,
+  rsui,
+  klinikSatelit,
+  gerbangKukel,
+  gerbangKutek
+];
+
+Map<String, Fasilitas> daftarFasilitas = {
+  for (var fasilitas in daftarFasilitasRaw) fasilitas.toString(): fasilitas
+};
