@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ibuska/common/dropdown_helper.dart';
 import 'package:ibuska/data/catalogues/fasilitas_data.dart';
 import 'package:ibuska/data/models/fasilitas.dart';
 import 'package:ibuska/presentation/widgets/drawer_menu.dart';
@@ -12,8 +13,8 @@ class FacilityPage extends StatefulWidget {
 }
 
 class _FacilityPageState extends State<FacilityPage> {
-  var selectedFacilityTitle = "RSUI";
-  Fasilitas? selectedFacility = daftarFasilitas['RSUI'];
+  var selectedFacilityTitle = "Halte Bus Transjakarta UI";
+  Fasilitas? selectedFacility = daftarFasilitas["Halte Bus Transjakarta UI"];
   
   @override
   Widget build(BuildContext context) {
@@ -76,7 +77,7 @@ class _FacilityPageState extends State<FacilityPage> {
                           ),
                           child: DropdownButton(
                             value: selectedFacilityTitle,
-                            items: dropdownItems,
+                            items: dropdownItems(daftarFasilitas),
                             onChanged: (String? newValue) {
                               setState(() {
                                 selectedFacilityTitle = newValue!;
@@ -130,15 +131,5 @@ class _FacilityPageState extends State<FacilityPage> {
         ),
       ),
     );
-  }
-
-  List<DropdownMenuItem<String>> get dropdownItems {
-    List<DropdownMenuItem<String>> menuItems = [];
-    for (var namaFasilitas in daftarFasilitas.keys) {
-      menuItems.add(DropdownMenuItem(
-          value: namaFasilitas,
-          child: Text(namaFasilitas)));
-    }
-    return menuItems;
   }
 }
