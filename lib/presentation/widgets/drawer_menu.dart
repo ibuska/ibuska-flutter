@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ibuska/presentation/pages/faculty_page.dart';
+import 'package:ibuska/presentation/pages/halte_bus_page.dart';
 import 'package:ibuska/presentation/pages/home_page.dart';
 import 'package:ibuska/presentation/pages/position_page.dart';
+import 'package:ibuska/presentation/pages/route_page.dart';
 import 'package:ibuska/presentation/pages/schedule_page.dart';
 
 class DrawerMenu extends StatefulWidget {
@@ -69,9 +71,21 @@ class _DrawerMenuState extends State<DrawerMenu> {
                   ),
                   ListTile(
                     title: const Text('Rute Bus'),
-                    onTap: () {},
+                    onTap: () {
+                      widget.route == RoutePage.routeName
+                        ? Navigator.pop(context)
+                        : Navigator.pushReplacementNamed(context, RoutePage.routeName);
+                    },
                   ),
                   const Divider(),
+                  ListTile(
+                    title: const Text('Daftar Halte Bus'),
+                    onTap: () {
+                      widget.route == HalteBusPage.routeName
+                        ? Navigator.pop(context)
+                        : Navigator.pushReplacementNamed(context, HalteBusPage.routeName);
+                    },
+                  ),
                   ListTile(
                     title: const Text('Daftar Fakultas'),
                     onTap: () {
