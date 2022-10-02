@@ -33,7 +33,7 @@ Fasilitas stasiunPocin = const Fasilitas(
 Fasilitas masjidUI = const Fasilitas(
   nama: "Masjid UI",
   tipe: "Masjid",
-  deskripsi: "Masjid Universitas Indonesia.",
+  deskripsi: "Masjid Masjid Ukhuwah Islamiyah Universitas Indonesia.",
 );
 
 Fasilitas asramaUI = const Fasilitas(
