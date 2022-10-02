@@ -19,16 +19,16 @@ HalteBus halteStasiun = HalteBus(
   deskripsi: "Halte Stasiun Universitas Indonesia.",
 );
 
-HalteBus halteFH = const HalteBus(
+HalteBus halteFH = HalteBus(
   nama: "FH",
-  fasilitas: [],
+  fasilitas: [masjidUI],
   deskripsi: "Halte Fakultas Hukum.",
 );
 
-HalteBus haltePocin = HalteBus(
-  nama: "Pondok Cina",
+HalteBus halteBalairung = HalteBus(
+  nama: "Balairung",
   fasilitas: [stasiunPocin],
-  deskripsi: "Halte Pondok Cina.",
+  deskripsi: "Halte Balairung.",
 );
 
 HalteBus halteMasjid = HalteBus(
@@ -49,6 +49,12 @@ HalteBus halteFKM = HalteBus(
   deskripsi: "Halte Fakultas Kesehatan Masyarakat.",
 );
 
+HalteBus halteRSUI = HalteBus(
+  nama: "RSUI",
+  fasilitas: [rsui],
+  deskripsi: "Halte Rumah Sakit Universitas Indonesia.",
+);
+
 HalteBus halteFIK = const HalteBus(
   nama: "FIK",
   fasilitas: [],
@@ -65,12 +71,6 @@ HalteBus halteSOR = const HalteBus(
   nama: "SOR",
   fasilitas: [],
   deskripsi: "Halte Sarana Olahraga.",
-);
-
-HalteBus haltePusgiwa = const HalteBus(
-  nama: "Pusgiwa",
-  fasilitas: [],
-  deskripsi: "Halte Pusat Kegiatan Mahasiswa.",
 );
 
 HalteBus halteVokasi = HalteBus(
@@ -115,13 +115,13 @@ List<HalteBus> daftarHalteBus = [
   halteStasiun,
   halteFH,
   halteMasjid,
-  haltePocin,
+  halteBalairung,
   halteRIK,
   halteFKM,
+  halteRSUI,
   halteFIK,
   halteFMIPA,
   halteSOR,
-  haltePusgiwa,
   halteVokasi,
   halteFT,
   halteFEB,

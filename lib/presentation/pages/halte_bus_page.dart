@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:ibuska/data/catalogues/halte_bus_data.dart';
 import 'package:ibuska/presentation/widgets/drawer_menu.dart';
-import 'package:ibuska/presentation/widgets/route_info.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-  static const routeName = '/home';
+class HalteBusPage extends StatefulWidget {
+  const HalteBusPage({Key? key}) : super(key: key);
+  static const routeName = '/halte-bus';
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HalteBusPage> createState() => _HalteBusPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HalteBusPageState extends State<HalteBusPage> {
+  var selectedHalteBus = "Asrama";
+  
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -20,13 +22,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "IBUSKA",
+          "Daftar Halte Bus",
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
+        elevation: 0,
       ),
-      drawer: const DrawerMenu(HomePage.routeName),
+      drawer: const DrawerMenu(HalteBusPage.routeName),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -34,20 +37,20 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(
-                right: screenWidth * 0.075,
-                left: screenWidth * 0.075,
-                top: screenHeight * 0.04,
                 bottom: screenHeight * 0.01,
               ),
               child: SizedBox(
-                width: screenWidth * 0.85,
-                height: screenHeight * 0.325,
+                width: screenWidth,
+                height: screenHeight * 0.2,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(20.0),
+                    bottomRight: Radius.circular(20.0),
+                  ),
                   child: Container(
                     alignment: Alignment.topCenter,
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(125, 246, 219, 0),
+                      color: Color(0xFFF6DB00),
                     ),
                     child: Column(
                       children: [
@@ -56,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                             top: screenHeight * 0.015,
                           ),
                           child: Text(
-                            "Informasi Bus Kampus",
+                            "Pilih Halte Bus",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -69,13 +72,14 @@ class _HomePageState extends State<HomePage> {
                           padding: EdgeInsets.only(
                             top: screenHeight * 0.01,
                           ),
-                          child: Text(
-                            "Jam Operasional\n\n Senin - Jumat: 07.00 - 21.00 WIB\n\n Sabtu: 07.00 - 14.00 WIB",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: screenHeight * 0.035,
-                            ),
+                          child: DropdownButton(
+                            value: selectedHalteBus,
+                            items: dropdownItems,
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                selectedHalteBus = newValue!;
+                              });
+                            },
                           ),
                         ),
                       ],
@@ -84,35 +88,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: screenHeight * 0.01,
-                bottom: screenHeight * 0.01,
-              ),
-              child: SizedBox(
-                width: screenWidth * 0.85,
-                height: screenHeight * 0.05,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(36.0),
-                  child: Container(
-                    alignment: Alignment.center,
-                    decoration: const BoxDecoration(
-                      color: Color(0xFFF6DB00),
-                    ),
-                    child: Text(
-                      "Informasi Rute Bus",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: screenHeight * 0.035,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            const RouteInfo("merah"),
-            const RouteInfo("biru"),
           ],
         ),
       ),
@@ -126,5 +101,15 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  List<DropdownMenuItem<String>> get dropdownItems {
+    List<DropdownMenuItem<String>> menuItems = [];
+    for (int i = 0; i < daftarHalteBus.length; i++) {
+      menuItems.add(DropdownMenuItem(
+          value: daftarHalteBus[i].toString(),
+          child: Text(daftarHalteBus[i].toString())));
+    }
+    return menuItems;
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ibuska/presentation/pages/faculty_page.dart';
+import 'package:ibuska/presentation/pages/halte_bus_page.dart';
 import 'package:ibuska/presentation/pages/home_page.dart';
 import 'package:ibuska/presentation/pages/position_page.dart';
+import 'package:ibuska/presentation/pages/route_page.dart';
 import 'package:ibuska/presentation/pages/schedule_page.dart';
 
 void main() {
@@ -40,8 +42,12 @@ class MyApp extends StatelessWidget {
           switch (settings.name) {
             case HomePage.routeName:
               return MaterialPageRoute(builder: (_) => const HomePage());
+            case RoutePage.routeName:
+              return MaterialPageRoute(builder: (_) => const RoutePage());
             case FacultyPage.routeName:
               return MaterialPageRoute(builder: (_) => const FacultyPage());
+            case HalteBusPage.routeName:
+              return MaterialPageRoute(builder: (_) => const HalteBusPage());
             case PositionPage.routeName:
               return MaterialPageRoute(builder: (_) => const PositionPage());
             case SchedulePage.routeName:
