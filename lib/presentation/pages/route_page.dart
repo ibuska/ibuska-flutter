@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ibuska/presentation/widgets/drawer_menu.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:photo_view/photo_view.dart';
 
 class RoutePage extends StatefulWidget {
   const RoutePage({Key? key}) : super(key: key);
@@ -37,7 +38,12 @@ class _RoutePageState extends State<RoutePage> {
             Padding(padding: EdgeInsets.only(top: screenHeight * 0.01)),
             SizedBox(
               height: screenHeight * 0.8,
-              child: Image.network('https://pbs.twimg.com/media/EIAAxLZWoAMVkA1?format=png'),
+              child: PhotoView(
+                imageProvider: const NetworkImage(
+                    'https://pbs.twimg.com/media/EIAAxLZWoAMVkA1?format=png'),
+                backgroundDecoration:
+                    const BoxDecoration(color: Colors.transparent),
+              ),
             ),
             Padding(padding: EdgeInsets.only(top: screenHeight * 0.01)),
             Row(
@@ -45,9 +51,15 @@ class _RoutePageState extends State<RoutePage> {
               children: [
                 const Text("Credits: "),
                 InkWell(
-                    child: const Text('Adriansyah Yasin Sulaeman'),
-                    onTap: () => launchUrl(Uri.parse(
-                        "https://twitter.com/adriansyahyasin/"))),
+                    child: const Text(
+                      'Adriansyah Yasin Sulaeman',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                    onTap: () => launchUrl(
+                        Uri.parse("https://twitter.com/adriansyahyasin/"))),
               ],
             ),
           ],
