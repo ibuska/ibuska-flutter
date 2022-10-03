@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ibuska/common/dropdown_helper.dart';
 import 'package:ibuska/data/catalogues/fakultas_data.dart';
+import 'package:ibuska/data/models/fakultas.dart';
 import 'package:ibuska/presentation/widgets/drawer_menu.dart';
 
 class FacultyPage extends StatefulWidget {
@@ -11,8 +13,9 @@ class FacultyPage extends StatefulWidget {
 }
 
 class _FacultyPageState extends State<FacultyPage> {
-  var selectedFaculty = "FH";
-  
+  var selectedFacultyTitle = "FH";
+  Fakultas? selectedFaculty = daftarFakultas['FH'];
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -73,11 +76,12 @@ class _FacultyPageState extends State<FacultyPage> {
                             top: screenHeight * 0.01,
                           ),
                           child: DropdownButton(
-                            value: selectedFaculty,
-                            items: dropdownItems,
+                            value: selectedFacultyTitle,
+                            items: dropdownItems(daftarFakultas),
                             onChanged: (String? newValue) {
                               setState(() {
-                                selectedFaculty = newValue!;
+                                selectedFacultyTitle = newValue!;
+                                selectedFaculty = daftarFakultas[newValue];
                               });
                             },
                           ),
@@ -86,6 +90,45 @@ class _FacultyPageState extends State<FacultyPage> {
                     ),
                   ),
                 ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.01,
+                left: screenHeight * 0.05,
+                right: screenHeight * 0.05,
+              ),
+              child: Row(
+                children: [
+                  const Text("Nama: "),
+                  Text(selectedFaculty!.nama),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.01,
+                left: screenHeight * 0.05,
+                right: screenHeight * 0.05,
+              ),
+              child: Row(
+                children: [
+                  const Text("Halte Terdekat: "),
+                  Text(selectedFaculty!.halteTerdekat.toString()),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.01,
+                left: screenHeight * 0.05,
+                right: screenHeight * 0.05,
+              ),
+              child: Row(
+                children: [
+                  const Text("Deskripsi: "),
+                  Text(selectedFaculty!.deskripsi),
+                ],
               ),
             ),
           ],
@@ -101,15 +144,5 @@ class _FacultyPageState extends State<FacultyPage> {
         ),
       ),
     );
-  }
-
-  List<DropdownMenuItem<String>> get dropdownItems {
-    List<DropdownMenuItem<String>> menuItems = [];
-    for (int i = 0; i < daftarFakultas.length; i++) {
-      menuItems.add(DropdownMenuItem(
-          value: daftarFakultas[i].toString(),
-          child: Text(daftarFakultas[i].toString())));
-    }
-    return menuItems;
   }
 }
