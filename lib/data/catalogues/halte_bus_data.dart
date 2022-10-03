@@ -109,7 +109,7 @@ HalteBus halteFPsi = const HalteBus(
   deskripsi: "Halte Fakultas Psikologi.",
 );
 
-List<HalteBus> daftarHalteBus = [
+List<HalteBus> daftarHalteBusRaw = [
   halteAsrama,
   halteMenwa,
   halteStasiun,
@@ -129,3 +129,7 @@ List<HalteBus> daftarHalteBus = [
   halteFISIP,
   halteFPsi,
 ];
+
+Map<String, HalteBus> daftarHalteBus = {
+  for (var halteBus in daftarHalteBusRaw) halteBus.toString(): halteBus
+};

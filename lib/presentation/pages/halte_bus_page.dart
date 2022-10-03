@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ibuska/common/dropdown_helper.dart';
 import 'package:ibuska/data/catalogues/halte_bus_data.dart';
+import 'package:ibuska/data/models/halte_bus.dart';
 import 'package:ibuska/presentation/widgets/drawer_menu.dart';
 
 class HalteBusPage extends StatefulWidget {
@@ -11,8 +13,9 @@ class HalteBusPage extends StatefulWidget {
 }
 
 class _HalteBusPageState extends State<HalteBusPage> {
-  var selectedHalteBus = "Asrama";
-  
+  var selectedHalteBusTitle = "Asrama";
+  HalteBus? selectedHalteBus = daftarHalteBus['Asrama'];
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -73,11 +76,12 @@ class _HalteBusPageState extends State<HalteBusPage> {
                             top: screenHeight * 0.01,
                           ),
                           child: DropdownButton(
-                            value: selectedHalteBus,
-                            items: dropdownItems,
+                            value: selectedHalteBusTitle,
+                            items: dropdownItems(daftarHalteBus),
                             onChanged: (String? newValue) {
                               setState(() {
-                                selectedHalteBus = newValue!;
+                                selectedHalteBusTitle = newValue!;
+                                selectedHalteBus = daftarHalteBus[newValue];
                               });
                             },
                           ),
@@ -86,6 +90,45 @@ class _HalteBusPageState extends State<HalteBusPage> {
                     ),
                   ),
                 ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.01,
+                left: screenHeight * 0.05,
+                right: screenHeight * 0.05,
+              ),
+              child: Row(
+                children: [
+                  const Text("Nama: "),
+                  Text(selectedHalteBus!.nama),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.01,
+                left: screenHeight * 0.05,
+                right: screenHeight * 0.05,
+              ),
+              child: Row(
+                children: [
+                  const Text("Deskripsi: "),
+                  Text(selectedHalteBus!.deskripsi),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.01,
+                left: screenHeight * 0.05,
+                right: screenHeight * 0.05,
+              ),
+              child: Row(
+                children: [
+                  const Text("Fasilitas Terdekat: "),
+                  Text(selectedHalteBus!.fasilitas.toString()),
+                ],
               ),
             ),
           ],
@@ -101,15 +144,5 @@ class _HalteBusPageState extends State<HalteBusPage> {
         ),
       ),
     );
-  }
-
-  List<DropdownMenuItem<String>> get dropdownItems {
-    List<DropdownMenuItem<String>> menuItems = [];
-    for (int i = 0; i < daftarHalteBus.length; i++) {
-      menuItems.add(DropdownMenuItem(
-          value: daftarHalteBus[i].toString(),
-          child: Text(daftarHalteBus[i].toString())));
-    }
-    return menuItems;
   }
 }
