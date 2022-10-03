@@ -85,7 +85,7 @@ Fakultas fib = Fakultas(
   deskripsi: "Fakultas Ilmu Budaya.",
 );
 
-List<Fakultas> daftarFakultas = [
+List<Fakultas> daftarFakultasRaw = [
   fh,
   rik,
   fkm,
@@ -100,3 +100,7 @@ List<Fakultas> daftarFakultas = [
   fisip,
   fpsi,
 ];
+
+Map<String, Fakultas> daftarFakultas = {
+  for (var fakultas in daftarFakultasRaw) fakultas.toString(): fakultas
+};
